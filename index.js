@@ -551,6 +551,9 @@ app.post('/api/persons', async (request, response) => {
     const body = request.body
     console.log(body)
     
+    console.log("Request is received from frontend")
+    console.log("Body of the request from frontend is : ", body)
+
   
     if(body.name === undefined &&  body.number === undefined)
   {
