@@ -618,7 +618,7 @@ app.post('/api/persons', async (request, response) => {
           console.log('Name validation error:', err.errors.name.message);
         }
         // Check if there are errors for the `phone` field
-        if (err.errors.phone) {
+        if (err.errors.number) {
           console.log('Phone validation error:', err.errors.number.message);
         }
       } else {
