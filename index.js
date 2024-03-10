@@ -619,7 +619,7 @@ app.post('/api/persons', async (request, response) => {
         }
         // Check if there are errors for the `phone` field
         if (err.errors.phone) {
-          console.log('Phone validation error:', err.errors.phone.message);
+          console.log('Phone validation error:', err.errors.number.message);
         }
       } else {
         // Log other errors
