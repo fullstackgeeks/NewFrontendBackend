@@ -46,7 +46,7 @@ mongoose.connect(url).then(result => {
 const personSchma = new mongoose.Schema({
     name:{
         type: String,
-        minlength: [3, 'Must be at least 3 characters, got {VALUE}'],
+        minlength: [3, 'Must be at least 3 characters, you entered: {VALUE}'],
         // max: 12,
         required: [true, 'User name is required']
 
