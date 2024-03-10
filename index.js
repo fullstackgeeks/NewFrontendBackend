@@ -610,7 +610,7 @@ app.post('/api/persons', async (request, response) => {
     console.log("SavedNote is : ", savedUser)
     return response.json(savedUser)
    }).catch(error => {
-    console.log(error.response.data.error)
+    console.log("Error : ", error)
    })
        
     }
