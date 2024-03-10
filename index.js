@@ -579,6 +579,27 @@ app.post('/api/persons', async (request, response) => {
     }
     else{
 
+
+        // Define custom validator function
+        // function validatePhoneNumber(phone) {
+        // return /\d{3}-\d{3}-\d{4}/.test(phone);
+        // }
+  
+  // Define the user schema
+//   const userSchema = new Schema({
+//     phone: {
+//       type: String,
+//       validate: {
+//         validator: validatePhoneNumber,
+//         message: props => `${props.value} is not a valid phone number!`
+//       },
+//       required: [true, 'User phone number required']
+//     }
+//   });
+
+
+
+
         
       const person = new Persons({
         name:body.name,
@@ -588,6 +609,8 @@ app.post('/api/persons', async (request, response) => {
            person.save().then(savedUser => {
     console.log("SavedNote is : ", savedUser)
     return response.json(savedUser)
+   }).catch(error => {
+    console.log(error.response.data.error)
    })
        
     }

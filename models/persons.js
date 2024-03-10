@@ -32,9 +32,32 @@ mongoose.connect(url).then(result => {
 
 
 
+ // Define custom validator function
+ function validatePhoneNumber(phone) {
+    return /^\d{3}-\d{7}$/.test(phone);
+    }
+  
+
+
+
+
+
+
 const personSchma = new mongoose.Schema({
-    name:String,
-    number: String,
+    name:{
+        type: String,
+        min: [3, 'Must be at least 3 characters, got {VALUE}'],
+        // max: 12
+    },
+    number: {
+        type: String,
+        validate: {
+            validator: validatePhoneNumber,
+            message: props => `${props.value} is not a valid phone number!`
+        },
+        required: [true, 'User phone number required']
+
+    }
 })
 
 
