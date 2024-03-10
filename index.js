@@ -610,7 +610,20 @@ app.post('/api/persons', async (request, response) => {
     console.log("SavedNote is : ", savedUser)
     return response.json(savedUser)
    }).catch(error => {
-    console.log("Error : ", error.message.name)
+     // Check if there are validation errors
+     if (error.errors) {
+        // Check if there are errors for the `name` field
+        if (error.errors.name) {
+          console.log('Name validation error:', err.errors.name.message);
+        }
+        // Check if there are errors for the `phone` field
+        if (error.errors.phone) {
+          console.log('Phone validation error:', err.errors.phone.message);
+        }
+      } else {
+        // Log other errors
+        console.error(error);
+      }
    })
        
     }
